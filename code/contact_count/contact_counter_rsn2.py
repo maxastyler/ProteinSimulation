@@ -1,11 +1,13 @@
 #!/bin/env python3
+
+#This script takes a load of .xtc trajectory files at different temperatures and works out the fraction of native contacts that is present, then graphs this.
 import numpy as np
 import mdtraj as md
 from itertools import combinations
 import matplotlib.pyplot as plt
 
 #List of temperatures that have been done by the script
-temps=[100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200]
+temps=[100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200]
 
 def best_hummer_q(traj, native):
     """Compute the fraction of native contacts according the definition from
@@ -59,7 +61,7 @@ trajs = map(lambda fname: md.load('../../lammps_scripts/rsn2_temp/run.{0}.xtc'.f
 
 contacts = map(lambda x: best_hummer_q(x, native), trajs)
 #Average the contacts, remove the first few values before the protein gets to equilibrium
-avgs = map(np.average, map(lambda x: x[5:], list(contacts)))
+avgs = map(np.average, map(lambda x: x[6:], list(contacts)))
 
 plt.plot(temps, list(avgs))
 plt.show()
