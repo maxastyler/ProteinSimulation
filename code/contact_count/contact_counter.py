@@ -1,3 +1,4 @@
+#!/bin/env python3
 import numpy as np
 import mdtraj as md
 from itertools import combinations
@@ -46,3 +47,8 @@ def best_hummer_q(traj, native):
     r0 = md.compute_distances(native[0], native_contacts)
     q = np.mean(1.0 / (1 + np.exp(BETA_CONST * (r - LAMBDA_CONST * r0))), axis=1)
     return q
+
+traj = md.load('../../lammps_scripts/rsn2_temp/run.100.xtc', top='../../protein/ranaspumin/4-coarsegrained/cg_2wgo_filtered.pdb')
+native = md.load('../../protein/ranaspumin/4-coarsegrained/cg_2wgo_filtered.pdb')
+
+print(best_hummer_q(traj, native))
