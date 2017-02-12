@@ -18387,21 +18387,21 @@ Step Temp PotEng E_pair E_bond E_angle E_dihed
    96000     115.9415    18.140705   -36.191692    20.356782    25.693576    8.2820392 
    98000    114.25308    19.808784   -33.855677     18.26888    25.252558    10.143022 
   100000     123.5321    21.736074   -36.223933    21.774599    26.431791    9.7536168 
-Loop time of 29.4897 on 1 procs for 100000 steps with 185 atoms
+Loop time of 86.3943 on 1 procs for 100000 steps with 185 atoms
 
-Performance: 146.492 ns/day, 0.164 hours/ns, 3391.010 timesteps/s
-106.2% CPU use with 1 MPI tasks x no OpenMP threads
+Performance: 50.003 ns/day, 0.480 hours/ns, 1157.484 timesteps/s
+35.2% CPU use with 1 MPI tasks x no OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 21.998     | 21.998     | 21.998     |   0.0 | 74.60
-Bond    | 6.1779     | 6.1779     | 6.1779     |   0.0 | 20.95
-Neigh   | 0.13207    | 0.13207    | 0.13207    |   0.0 |  0.45
-Comm    | 0.017856   | 0.017856   | 0.017856   |   0.0 |  0.06
-Output  | 0.003854   | 0.003854   | 0.003854   |   0.0 |  0.01
-Modify  | 1.0929     | 1.0929     | 1.0929     |   0.0 |  3.71
-Other   |            | 0.06696    |            |       |  0.23
+Pair    | 64.375     | 64.375     | 64.375     |   0.0 | 74.51
+Bond    | 18.146     | 18.146     | 18.146     |   0.0 | 21.00
+Neigh   | 0.34673    | 0.34673    | 0.34673    |   0.0 |  0.40
+Comm    | 0.054775   | 0.054775   | 0.054775   |   0.0 |  0.06
+Output  | 0.010922   | 0.010922   | 0.010922   |   0.0 |  0.01
+Modify  | 3.2625     | 3.2625     | 3.2625     |   0.0 |  3.78
+Other   |            | 0.1984     |            |       |  0.23
 
 Nlocal:    185 ave 185 max 185 min
 Histogram: 1 0 0 0 0 0 0 0 0 0
@@ -18422,4 +18422,4 @@ next a
 jump SELF loopstart
 # set logfile
 log		log.run.$t
-log		log.run.130
+log		log.run.125
