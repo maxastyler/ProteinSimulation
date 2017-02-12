@@ -18,17 +18,16 @@
  **************************************************
 
  System will not be shifted.
- Will NOT check pdb for unrecognized atoms.
- BE CAREFUL IF YOU DISABLE CHECKING.
  All-Atom  graining will be used
+ checked pdb file.  All atoms were recognized.
  PDB file read in
  NOTE: This webtool only uses coordinate precision to 10^-2 A
  starting bond calculations
  bonds done   0.0000000     seconds elapsed
  starting bond angle calculations
- bond  angles done  9.99003649E-04 seconds elapsed
+ bond  angles done  1.00000203E-03 seconds elapsed
  starting dihedral calculations
- dihedrals done  2.00000405E-03 seconds elapsed
+ dihedrals done  9.99003649E-04 seconds elapsed
  starting contact calculations
  A cut-off distance will be used for calculating contacts
    4.0000000000000000       for proteins
@@ -37,7 +36,7 @@
  The XYZ dimensions of the grid used 
  for contact calculations are
    38.059001922607422        35.284999847412109        35.187999725341797     
- contacts done  0.48592600     seconds elapsed
+ contacts done  0.46092904     seconds elapsed
  starting non-contact calculations
  non-contacts will be given a repulsive distance of
    2.5000000000000000      Angstroms
@@ -66,10 +65,10 @@ Shadow Contact Map Java Application (SCM)
 Created by Jeff Noel at CTBP-UCSD
 Version 1.31
 
-Reading grofile: 2wgo_smog.19616.pdb.gro.
+Reading grofile: 2wgo_smog.19618.pdb.gro.
 1 781
 Found 781 atoms.
-Reading Chains from 2wgo_smog.19616.pdb.ndx.
+Reading Chains from 2wgo_smog.19618.pdb.ndx.
 1 781
 Found 1 chains.
 Reading Topology.
@@ -81,10 +80,10 @@ Found 790 bonds.
 Found 1053 angles.
 Found 2357 dihedrals.
 Calculating contacts.
-Printing reindexed PDB to file: 2wgo_smog.19616.pdb.meta.pdb.
+Printing reindexed PDB to file: 2wgo_smog.19618.pdb.meta.pdb.
 Each chain will start with residue 1 and atom 1.
-Printing residue-residue contacts to file: 2wgo_smog.19616.pdb.contacts.
-1
+Printing contacts to file: 2wgo_smog.19618.pdb.contacts.
+Reindexing to correspond with the reindexed PDB.
 ******* Parameters Used *********
 Atom shadowing size: 1.0
 Cutoff radius: 6.0
@@ -92,7 +91,7 @@ Sequence distance between protein contacts: 3
 Sequence distance between RNA/DNA contacts: 0
 Shadowing size of bonded atom: 0.5
 *********************************
-Total time: 0.964 seconds.
+Total time: 0.969 seconds.
 *****************************************************************
 This software is part of SMOG.  http://smog-server.org
 Direct questions to: info@smog-server.org
@@ -136,10 +135,8 @@ Done with calculation of the shadow map. The following messages will correspond 
  **************************************************
 
  System will not be shifted.
- Heterogeneous masses will be assigned to atoms.
- Will NOT check pdb for unrecognized atoms.
- BE CAREFUL IF YOU DISABLE CHECKING.
- CA        graining will be used
+ All-Atom  graining will be used
+ checked pdb file.  All atoms were recognized.
  PDB file read in
  NOTE: This webtool only uses coordinate precision to 10^-2 A
  starting bond calculations
@@ -147,39 +144,20 @@ Done with calculation of the shadow map. The following messages will correspond 
  starting bond angle calculations
  bond  angles done   0.0000000     seconds elapsed
  starting dihedral calculations
- dihedrals done  1.00000203E-03 seconds elapsed
+ dihedrals done   0.0000000     seconds elapsed
  starting contact calculations
- contacts done  9.99998301E-04 seconds elapsed
+ contacts done  2.99900025E-03 seconds elapsed
  starting non-contact calculations
  non-contacts will be given a repulsive distance of
-   4.0000000000000000      Angstroms
+   2.5000000000000000      Angstroms
  non-contacts will be given a repulsive epsilon of
-   1.0000000000000000     
+  1.00000000000000002E-002
  repulsive done
  non-contacts done   0.0000000     seconds elapsed
  writing parameters to file...
- WARNING: Bond angle is over 140 degrees!
- Your structure may be strange, and this 
- may lead to spikes in energy (see FAQ page)
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
  Offending bond between atoms
-          49          50          51
-
- WARNING: Bond angle is over 140 degrees!
- Your structure may be strange, and this 
- may lead to spikes in energy (see FAQ page)
- Offending bond between atoms
-          50          51          52
-
- WARNING: Bond angle is over 140 degrees!
- Your structure may be strange, and this 
- may lead to spikes in energy (see FAQ page)
- Offending bond between atoms
-          79          80          81
-
- WARNING: Bond angle is over 140 degrees!
- Your structure may be strange, and this 
- may lead to spikes in energy (see FAQ page)
- Offending bond between atoms
-          82          83          84
+         657         658         659
 
  SUCCESS : GRO and TOP files have been written.
