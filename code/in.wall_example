@@ -1,0 +1,49 @@
+# 3d Lennard-Jones interface
+
+units		lj
+atom_style	atomic
+
+boundary	p p f
+lattice		sc 1.0
+region		box block -1.5 1.5 -1.5 1.5 -1.5 1.5
+create_box	1 box
+create_atoms	1 box
+mass		1 1.0
+change_box	all x final -10 10 y final -10 10 z final -11 11
+
+velocity	all create 1.0 87287
+
+pair_style	lj/cut 1.122462
+pair_coeff	1 1 1.0 1.0 1.122462
+
+neighbor	0.3 bin
+neigh_modify	every 20 delay 0 check no
+
+fix		1 all nve
+fix             2 all langevin 1.0 1.0 1.0 3735
+
+# for attraction:
+# V(r) = c9/r^9 - c3/r^3
+#      = eps [ 1/2 (sigma/r)^9 - 3/2 (sigma/r)^3 ]
+# F(r) = 9/2 eps/sigma [ (sigma/r)^10 - (sigma/r)^4 ]
+# c3 = 3/2 eps sigma^3
+# c9 = 1/2 eps sigma^9
+# for repulsion
+# V(r) = c9/r^9
+#      = eps (sigma/r)^9   # which means that at r=sigma the energy is eps
+# c3 = 0.0
+# c9 = eps sigma^9
+# syntax
+# fix wallhi all wall/lj93new xlo $pos $c3 $c9 $cutoff units box
+# eps = 0.5
+# sigma = 1
+fix             hiwall all wall/lj93new zhi +11 0.75 0.25 4.0 units box # attractive
+fix             lowall all wall/lj93new zlo -11 0.0  0.5  1.0 units box # repulsive
+
+thermo		200
+timestep	0.005
+run		2000
+
+dump		id all custom 200 dump.interface id type x y z
+
+run		20000000
