@@ -1,7 +1,8 @@
 #Set the temperature variable
-variable a loop 2
-variable t index 100 200
+variable a loop 11
+variable t index 100 110 120 130 140 150 160 170 180 190 200
 
+label loopstart
 # set logfile
 log		log.run.$t
 
@@ -35,10 +36,10 @@ dihedral_style	charmm
 special_bonds	lj 0.0 0.0 0.0 angle yes dihedral yes # 3 exclusions
 
 # READ "start" data file
-read_data ../../../protein/ranaspumin/4-coarsegrained/data.input
+read_data ../../protein/ranaspumin/4-coarsegrained/data.input
 
 # define coeffs
-include ../../../protein/ranaspumin/4-coarsegrained/settings.param
+include ../../protein/ranaspumin/4-coarsegrained/settings.param
 
 # Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
 thermo		2000
@@ -68,3 +69,4 @@ clear
 
 next t
 next a
+jump SELF loopstart
