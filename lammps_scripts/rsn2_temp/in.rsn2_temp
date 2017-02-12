@@ -1,5 +1,6 @@
 #Set the temperature variable
-variable t equal 100
+variable a loop 2
+variable t index 100 200
 
 # set logfile
 log		log.run.$t
@@ -63,3 +64,7 @@ reset_timestep  0
 
 restart		100000 restart.$t.run
 run		100000
+clear
+
+next t
+next a
