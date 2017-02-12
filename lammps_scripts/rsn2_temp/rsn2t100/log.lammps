@@ -1,0 +1,7 @@
+LAMMPS (10 Feb 2016)
+#Set the temperature variable
+variable t equal 100
+
+# set logfile
+log		log.run.$t
+log		log.run.100
