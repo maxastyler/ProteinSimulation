@@ -7,7 +7,7 @@ from itertools import combinations
 import matplotlib.pyplot as plt
 
 #List of temperatures that have been done by the script
-temps=[100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190, 195, 200]
+temps=[100, 105, 110, 115, 120, 125, 130, 135, 140, 142, 145, 147, 150, 152, 155, 158, 160, 163, 165, 170, 175, 180, 185, 190, 195, 200]
 
 def best_hummer_q(traj, native):
     """Compute the fraction of native contacts according the definition from
