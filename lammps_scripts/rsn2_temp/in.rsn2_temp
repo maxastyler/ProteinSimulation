@@ -1,5 +1,5 @@
 #Set the temperature variable
-variable a loop 21
+variable a loop 26
 variable t index 100 105 110 115 120 125 130 135 140 142 145 147 150 152 155 158 160 163 165 170 175 180 185 190 195 200
 
 label loopstart
