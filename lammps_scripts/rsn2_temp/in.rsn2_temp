@@ -1,6 +1,6 @@
 #Set the temperature variable
 variable a loop 21
-variable t index 100 105 110 115 120 125 130 135 140 145 150 155 160 165 170 175 180 185 190 195 200
+variable t index 100 105 110 115 120 125 130 135 140 142 145 147 150 152 155 158 160 163 165 170 175 180 185 190 195 200
 
 label loopstart
 # set logfile
@@ -46,7 +46,7 @@ thermo		2000
 thermo_style	custom step temp pe epair ebond eangle edihed
 
 # Dump configs - "simple dumpings"
-dump		1 all xtc 5000 run.$t.xtc
+dump		1 all xtc 1000 run.$t.xtc
 
 # set timestep from
 # tau=sqrt(m/eres)r0 = 0.00038 ns = 380 fs
@@ -63,8 +63,8 @@ fix		com all recenter 0.0 0.0 0.0 units box
 timestep        0.5
 reset_timestep  0
 
-restart		100000 restart.$t.run
-run		100000
+restart		5000000 restart.$t.run
+run		5000000
 clear
 
 next t
