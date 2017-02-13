@@ -63,6 +63,7 @@ fix		com all recenter 0.0 0.0 0.0 units box
 timestep        0.5
 reset_timestep  0
 
+#At 5000000 steps will take ~ 13 hours to run
 restart		5000000 restart.$t.run
 run		5000000
 clear
