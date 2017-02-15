@@ -2,12 +2,17 @@
 
 #This script takes a load of .xtc trajectory files at different temperatures and works out the fraction of native contacts that is present, then graphs this.
 import numpy as np
+from scipy.optimize import curve_fit 
 import mdtraj as md
 from itertools import combinations
 import matplotlib.pyplot as plt
 
 #List of temperatures that have been done by the script
 temps=[100, 105, 110, 115, 120, 125, 130, 135, 140, 142, 145, 147, 150, 152, 155, 158, 160, 163, 165, 170, 175, 180, 185, 190, 195, 200]
+
+#sigmoid function of the form f(x)=A/(1+B*exp(-C*x)+D
+def sigmoid(x, A, B, C, D):
+    return A/(1+np.exp(-B*(x-C))) + D
 
 def best_hummer_q(traj, native):
     """Compute the fraction of native contacts according the definition from
@@ -62,6 +67,13 @@ trajs = map(lambda fname: md.load('../../lammps_scripts/rsn2_temp/run.{0}.xtc'.f
 contacts = map(lambda x: best_hummer_q(x, native), trajs)
 #Average the contacts, remove the first few values before the protein gets to equilibrium
 avgs = map(np.average, map(lambda x: x[6:], list(contacts)))
+ys=list(avgs)
 
-plt.plot(temps, list(avgs))
+#plt.plot(temps, ys)
+fitted_curve=curve_fit(sigmoid, temps, ys, p0=[-0.8, 1, 150, 1])
+print(fitted_curve[0])
+gen_ys=[sigmoid(i, fitted_curve[0][0], fitted_curve[0][1], fitted_curve[0][2], fitted_curve[0][3]) for i in temps]
+residuals=[gen_ys[i]-ys[i] for i in range(len(ys))]
+#plt.plot(temps, gen_ys)
+plt.plot(temps, residuals)
 plt.show()
