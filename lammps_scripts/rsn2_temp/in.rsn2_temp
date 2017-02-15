@@ -42,7 +42,7 @@ read_data ../../protein/ranaspumin/4-coarsegrained/data.input
 include ../../protein/ranaspumin/4-coarsegrained/settings.param
 
 # Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
-thermo		2000
+thermo		1000
 thermo_style	custom step temp pe epair ebond eangle edihed
 
 # Dump configs - "simple dumpings"
@@ -63,7 +63,7 @@ fix		com all recenter 0.0 0.0 0.0 units box
 timestep        0.5
 reset_timestep  0
 
-#At 5000000 steps will take ~ 13 hours to run
+#On my quad core i5 - runs around 9800 steps/s (running with mpirun 4 cores (100% cpu usage) )
 restart		5000000 restart.$t.run
 run		5000000
 clear
