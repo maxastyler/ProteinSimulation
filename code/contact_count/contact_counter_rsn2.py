@@ -69,11 +69,11 @@ contacts = map(lambda x: best_hummer_q(x, native), trajs)
 avgs = map(np.average, map(lambda x: x[6:], list(contacts)))
 ys=list(avgs)
 
-#plt.plot(temps, ys)
+plt.plot(temps, ys)
 fitted_curve=curve_fit(sigmoid, temps, ys, p0=[-0.8, 1, 150, 1])
 print(fitted_curve[0])
 gen_ys=[sigmoid(i, fitted_curve[0][0], fitted_curve[0][1], fitted_curve[0][2], fitted_curve[0][3]) for i in temps]
 residuals=[gen_ys[i]-ys[i] for i in range(len(ys))]
-#plt.plot(temps, gen_ys)
-plt.plot(temps, residuals)
+plt.plot(temps, gen_ys)
+#plt.plot(temps, residuals)
 plt.show()
