@@ -1,0 +1,234 @@
+
+ **************************************************
+ Thank you for using the Noel-Onuchic-Whitford 
+ Structure-Based Model (SMOG) software, Version 1.2.3          
+
+ Primary references:
+
+ All-Atom Models
+ Whitford et al. Proteins. 75, 430-441, 2009.
+
+ C-alpha Protein Model
+ Clementi et al. J Mol Biol. 298, 937-953, 2000.
+
+ SMOG software
+ Noel, Levi, Raghunathan, Lammert, Hayes,
+ Onuchic and Whitford.  PLOS Comp. Biol. 2016
+ DOI: 10.1371/journal.pcbi.1004794
+ **************************************************
+
+ System will not be shifted.
+ All-Atom  graining will be used
+ checked pdb file.  All atoms were recognized.
+ PDB file read in
+ NOTE: This webtool only uses coordinate precision to 10^-2 A
+ starting bond calculations
+ bonds done   0.0000000     seconds elapsed
+ starting bond angle calculations
+ bond  angles done   0.0000000     seconds elapsed
+ starting dihedral calculations
+ dihedrals done  9.99987125E-04 seconds elapsed
+ starting contact calculations
+ A cut-off distance will be used for calculating contacts
+   4.0000000000000000       for proteins
+   4.0000000000000000       for DNA
+   4.0000000000000000      for DNA-Protein
+ The XYZ dimensions of the grid used 
+ for contact calculations are
+   43.301998138427734        41.749000549316406        35.339996337890625     
+ contacts done  0.45893103     seconds elapsed
+ starting non-contact calculations
+ non-contacts will be given a repulsive distance of
+   2.5000000000000000      Angstroms
+ non-contacts will be given a repulsive epsilon of
+  1.00000000000000002E-002
+ repulsive done
+ non-contacts done   0.0000000     seconds elapsed
+ writing parameters to file...
+ Warning: this atom does not have any bonds
+ pdb numbering
+ chain index            1
+ atom num          516
+ gro numbering
+ Atom Number          516
+ Residue           66 GLN
+ Atomtype  OXT
+ unusually long bond
+   274    275 1  0.26245E+00  0.20000E+05
+ unusually long bond
+   274    276 1  0.26624E+00  0.20000E+05
+ unusually long bond
+   514    517 1  0.54663E+00  0.20000E+05
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+          15          16          17
+
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+         273         274         275
+
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+         273         274         276
+
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+         275         274         276
+
+ WARNING: Bond angle is over 140 degrees!
+ Your structure may be strange, and this 
+ may lead to spikes in energy (see FAQ page)
+ Offending bond between atoms
+         845         844         846
+
+ SUCCESS : GRO and TOP files have been written.
+
+Starting calculation of the shadow map.
+SHADOW Settings...
+Maximum contact distance: 6.0
+Shadowing radius: 1.0
+Minimum sequence difference for protein-protein contacts: 3
+Minimum sequence difference for NA-NA contacts: 0
+Done with Shadow settings.
+
+
+Shadow Contact Map Java Application (SCM)
+Created by Jeff Noel at CTBP-UCSD
+Version 1.31
+
+Reading grofile: 3gax_smog.19627.pdb.gro.
+1 846
+Found 846 atoms.
+Reading Chains from 3gax_smog.19627.pdb.ndx.
+1 846
+Found 1 chains.
+Reading Topology.
+Found 664 pairs.
+Initializing connected list.
+Found 37 atom types.
+Found 664 pairs.
+Found 862 bonds.
+Found 1165 angles.
+Found 2593 dihedrals.
+Calculating contacts.
+Printing reindexed PDB to file: 3gax_smog.19627.pdb.meta.pdb.
+Each chain will start with residue 1 and atom 1.
+Printing contacts to file: 3gax_smog.19627.pdb.contacts.
+Reindexing to correspond with the reindexed PDB.
+******* Parameters Used *********
+Atom shadowing size: 1.0
+Cutoff radius: 6.0
+Sequence distance between protein contacts: 3
+Sequence distance between RNA/DNA contacts: 0
+Shadowing size of bonded atom: 0.5
+*********************************
+Total time: 0.993 seconds.
+*****************************************************************
+This software is part of SMOG.  http://smog-server.org
+Direct questions to: info@smog-server.org
+Work utilizing SMOG should cite:
+
+Noel JK, Whitford PC, Sanbonmatsu KY & Onuchic JN (2010)
+SMOG@ctbp: simplified deployment of structure-based models in GROMACS.
+Nucleic Acids Research, 38, W657?61. DOI: 10.1093/nar/gkq498
+
+Work using the Shadow contact map should cite:
+
+Noel, JK, Whitford PC & Onuchic JN (2012)
+The shadow map: a general contact definition for capturing the 
+dynamics of biomolecular folding and function. 
+Journal of Physical Chemistry B 116, 8692?8702.
+*****************************************************************
+Finished. 
+
+
+
+
+Done with calculation of the shadow map. The following messages will correspond to your simulation settings.
+
+
+ **************************************************
+ Thank you for using the Noel-Onuchic-Whitford 
+ Structure-Based Model (SMOG) software, Version 1.2.3          
+
+ Primary references:
+
+ All-Atom Models
+ Whitford et al. Proteins. 75, 430-441, 2009.
+
+ C-alpha Protein Model
+ Clementi et al. J Mol Biol. 298, 937-953, 2000.
+
+ SMOG software
+ Noel, Levi, Raghunathan, Lammert, Hayes,
+ Onuchic and Whitford.  PLOS Comp. Biol. 2016
+ DOI: 10.1371/journal.pcbi.1004794
+ **************************************************
+
+ System will not be shifted.
+ Heterogeneous masses will be assigned to atoms.
+ All-Atom  graining will be used
+ checked pdb file.  All atoms were recognized.
+ PDB file read in
+ NOTE: This webtool only uses coordinate precision to 10^-2 A
+ starting bond calculations
+ bonds done  1.00000203E-03 seconds elapsed
+ starting bond angle calculations
+ bond  angles done   0.0000000     seconds elapsed
+ starting dihedral calculations
+ dihedrals done  1.99999660E-03 seconds elapsed
+ starting contact calculations
+ contacts done  1.00000203E-03 seconds elapsed
+ starting non-contact calculations
+ non-contacts will be given a repulsive distance of
+   2.5000000000000000      Angstroms
+ non-contacts will be given a repulsive epsilon of
+  1.00000000000000002E-002
+ repulsive done
+ non-contacts done   0.0000000     seconds elapsed
+ writing parameters to file...
+ Warning: this atom does not have any bonds
+ pdb numbering
+ chain index            1
+ atom num          516
+ gro numbering
+ Atom Number          516
+ Residue           66 GLN
+ Atomtype  OXT
+ unusually long bond
+   274    275 1  0.26192E+00  0.20000E+05
+ unusually long bond
+   274    276 1  0.26525E+00  0.20000E+05
+ unusually long bond
+   514    517 1  0.54695E+00  0.20000E+05
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+          15          16          17
+
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+         273         274         275
+
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+         273         274         276
+
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+         275         274         276
+
+ WARNING: Bond angle is over 140 degrees!
+ Your structure may be strange, and this 
+ may lead to spikes in energy (see FAQ page)
+ Offending bond between atoms
+         845         844         846
+
+ SUCCESS : GRO and TOP files have been written.
