@@ -59,7 +59,7 @@ def best_hummer_q(traj, native):
     q = np.mean(1.0 / (1 + np.exp(BETA_CONST * (r - LAMBDA_CONST * r0))), axis=1)
     return q
 
-traj = md.load('../../lammps_scripts/cst3_temp/run.100.xtc', top='../../protein/ranaspumin/4-coarsegrained/cg_2wgo_filtered.pdb')
+traj = md.load('../../lammps_scripts/cst3_temp/run.100.xtc', top='../../protein/cystatin/3GAX/7-coarsegrained/cg_3gax_filtered.pdb')
 native = md.load('../../protein/cystatin/3GAX/7-coarsegrained/cg_3gax_filtered.pdb')
 
 trajs = map(lambda fname: md.load('../../lammps_scripts/cst3_temp/run.{0}.xtc'.format(fname), top='../../protein/cystatin/3GAX/7-coarsegrained/cg_3gax_filtered.pdb'), temps)
