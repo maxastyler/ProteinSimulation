@@ -59,14 +59,11 @@ def best_hummer_q(traj, native):
     q = np.mean(1.0 / (1 + np.exp(BETA_CONST * (r - LAMBDA_CONST * r0))), axis=1)
     return q
 
+native = md.load('../../protein/cystatin/3GAX/7-coarsegrained/cg_3gax_filtered.pdb')
+trajs = map(lambda fname: md.load('../../lammps_scripts/cst3_temp/run.{0}.xtc'.format(fname), top='../../protein/cystatin/3GAX/7-coarsegrained/cg_3gax_filtered.pdb'), temps)
+contacts = map(lambda x: best_hummer_q(x, native), trajs)
 if __name__=='__main__':
 
-    traj = md.load('../../lammps_scripts/cst3_temp/run.100.xtc', top='../../protein/cystatin/3GAX/7-coarsegrained/cg_3gax_filtered.pdb')
-    native = md.load('../../protein/cystatin/3GAX/7-coarsegrained/cg_3gax_filtered.pdb')
-    
-    trajs = map(lambda fname: md.load('../../lammps_scripts/cst3_temp/run.{0}.xtc'.format(fname), top='../../protein/cystatin/3GAX/7-coarsegrained/cg_3gax_filtered.pdb'), temps)
-    
-    contacts = map(lambda x: best_hummer_q(x, native), trajs)
     #Average the contacts, remove the first few values before the protein gets to equilibrium
     avgs = map(np.average, map(lambda x: x[6:], list(contacts)))
     ys=list(avgs)
