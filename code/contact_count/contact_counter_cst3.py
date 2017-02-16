@@ -8,7 +8,7 @@ from itertools import combinations
 import matplotlib.pyplot as plt
 
 #List of temperatures that have been done by the script
-temps=[ 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 142, 145, 147, 150, 152, 155, 158, 160, 163, 165, 170, 175, 180, 185, 190, 195, 200]
+temps=[2, 5, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 142, 145, 147, 150, 152, 155, 158, 160, 163, 165, 170, 175, 180, 185, 190, 195, 200]
 
 #sigmoid function of the form f(x)=A/(1+B*exp(-C*x)+D
 def sigmoid(x, A, B, C, D):
@@ -70,10 +70,10 @@ avgs = map(np.average, map(lambda x: x[6:], list(contacts)))
 ys=list(avgs)
 
 plt.plot(temps, ys)
-fitted_curve=curve_fit(sigmoid, temps, ys, p0=[-0.8, 1, 150, 1])
-print(fitted_curve[0])
-gen_ys=[sigmoid(i, fitted_curve[0][0], fitted_curve[0][1], fitted_curve[0][2], fitted_curve[0][3]) for i in temps]
-residuals=[gen_ys[i]-ys[i] for i in range(len(ys))]
-plt.plot(temps, gen_ys)
+#fitted_curve=curve_fit(sigmoid, temps, ys, p0=[-0.8, 1, 150, 1])
+#print(fitted_curve[0])
+#gen_ys=[sigmoid(i, fitted_curve[0][0], fitted_curve[0][1], fitted_curve[0][2], fitted_curve[0][3]) for i in temps]
+#residuals=[gen_ys[i]-ys[i] for i in range(len(ys))]
+#plt.plot(temps, gen_ys)
 #plt.plot(temps, residuals)
 plt.show()
