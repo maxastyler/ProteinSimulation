@@ -151,7 +151,9 @@ def coarsegrain(atoms,aacontacts):
       for aii in ai.atoms:
         for ajj in aj.atoms:
           if( (aii.id,ajj.id) in aacontacts ):
-            if((aj.rid-ai.rid)<=3): print '# error: (aj.rid-ai.rid)<=3'; sys.exit()
+            if((aj.rid-ai.rid)<=3): #print '# error: (aj.rid-ai.rid)<=3'; sys.exit()
+                print "# Warning: (aj.rid-ai.rid)<=3"
+                print "At aj.rid: " + str(aj.rid) + " and ai.rid: " + str(ai.rid)
             if(ai.id>=aj.id): print 'error: ai.id>=aj.id'; sys.exit()
             if( (ai.id,aj.id) not in nativepairs ):
               pair=Bond()
