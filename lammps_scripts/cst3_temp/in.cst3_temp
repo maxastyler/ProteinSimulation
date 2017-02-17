@@ -1,6 +1,6 @@
 #Set the temperature variable
-variable a loop 20
-variable t index 2 5 10 14 18 22 26 30 34 38 42 46 50 54 58 62 66 70 74 78
+variable a loop 1
+variable t index 60
 
 label loopstart
 # set logfile
@@ -36,10 +36,10 @@ dihedral_style	charmm
 special_bonds	lj 0.0 0.0 0.0 angle yes dihedral yes # 3 exclusions
 
 # READ "start" data file
-read_data ../../protein/cystatin/3GAX/7-coarsegrained/data.input
+read_data ../../protein/cystatin/3GAX/7-aNewCoarsegrained/data.input
 
 # define coeffs
-include ../../protein/cystatin/3GAX/7-coarsegrained/settings.param
+include ../../protein/cystatin/3GAX/7-aNewCoarsegrained/settings.param
 
 # Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
 thermo		1000
@@ -64,8 +64,8 @@ timestep        0.5
 reset_timestep  0
 
 #On my quad core i5 - runs around 9800 steps/s (running with mpirun 4 cores (100% cpu usage) )
-restart		5000000 restart.$t.run
-run		5000000
+restart		50000 restart.$t.run
+run		50000
 clear
 
 next t
