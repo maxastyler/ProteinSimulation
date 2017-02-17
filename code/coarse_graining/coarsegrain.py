@@ -334,7 +334,7 @@ else: print '#',len(angles),'angles created'
 # search for dihedrals starting from the bond i-j
 ndihedrals=0
 #ridflex=16 # included
-ridflex = (67-75) #inclusive
+ridflex = (67,75) #inclusive
 def inbetween(x, min_max): # inclusive
     if (x>=min_max[0] and x<=min_max[1]): return True
     else: return False
