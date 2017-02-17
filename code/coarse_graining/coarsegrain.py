@@ -1,4 +1,9 @@
 #!/usr/bin/python2
+#For ranaspumin:
+#   don't create dihedral bonds for residues <= 16 (this is the floppy tail)
+#   Add a disulfide bond between the cysteines C68-C86
+#For CST3 :
+#   
 
 import sys
 import math
