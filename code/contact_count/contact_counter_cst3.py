@@ -8,9 +8,12 @@ from itertools import combinations
 import matplotlib.pyplot as plt
 
 #List of temperatures that have been done by the script
-temps=[2, 5, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 142, 145, 147, 150, 152, 155, 158, 160, 163, 165, 170, 175, 180, 185, 190, 195, 200]
+#temps=[2, 5, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 142, 145, 147, 150, 152, 155, 158, 160, 163, 165, 170, 175, 180, 185, 190, 195, 200]
 
 #sigmoid function of the form f(x)=A/(1+B*exp(-C*x)+D
+cg_path='../../protein/cystatin/3GAX/7-aNewCoarsegrained/'
+sim_path='../../lammps_scripts/cst3_temp/'
+
 def sigmoid(x, A, B, C, D):
     return A/(1+np.exp(-B*(x-C))) + D
 
@@ -59,9 +62,10 @@ def best_hummer_q(traj, native):
     q = np.mean(1.0 / (1 + np.exp(BETA_CONST * (r - LAMBDA_CONST * r0))), axis=1)
     return q
 
-native = md.load('../../protein/cystatin/3GAX/7-coarsegrained/cg_3gax_filtered.pdb')
-trajs = map(lambda fname: md.load('../../lammps_scripts/cst3_temp/run.{0}.xtc'.format(fname), top='../../protein/cystatin/3GAX/7-coarsegrained/cg_3gax_filtered.pdb'), temps)
-contacts = map(lambda x: best_hummer_q(x, native), trajs)
+native = md.load(cg_path+'cg_3gax_filtered.pdb')
+#trajs = map(lambda fname: md.load('../../lammps_scripts/cst3_temp/run.{0}.xtc'.format(fname), top='../../protein/cystatin/3GAX/7-coarsegrained/cg_3gax_filtered.pdb'), temps)
+#contacts = map(lambda x: best_hummer_q(x, native), trajs)
+traj=md.load(sim_path+'run.60.xtc', top=cg_path+'cg_3gax_filtered.pdb')
 if __name__=='__main__':
 
     #Average the contacts, remove the first few values before the protein gets to equilibrium
