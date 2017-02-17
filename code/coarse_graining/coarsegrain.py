@@ -3,7 +3,8 @@
 #   don't create dihedral bonds for residues <= 16 (this is the floppy tail)
 #   Add a disulfide bond between the cysteines C68-C86
 #For CST3 :
-#   
+#   Maybe make residue 67 - 75 floppy?
+#   Add disulfide bond to C62-C70 and C84-C104
 
 import sys
 import math
@@ -332,7 +333,12 @@ else: print '#',len(angles),'angles created'
 # SC-CA-CA-SC
 # search for dihedrals starting from the bond i-j
 ndihedrals=0
-ridflex=16 # included
+#ridflex=16 # included
+ridflex = (67-75) #inclusive
+def inbetween(x, min_max): # inclusive
+    if (x>=min_max[0] and x<=min_max[1]): return True
+    else: return False
+inflex = lambda x: inbetween(x, ridflex)
 for b in bonds:
   i=b.a1.id-1
   j=b.a2.id-1
@@ -343,7 +349,8 @@ for b in bonds:
       ridk=cgatoms[k].rid
       ridl=cgatoms[l].rid
       if(l==i or l==j or k==i or k==j): continue
-      if(ridi<=ridflex or ridj<=ridflex or ridk<=ridflex or ridl<=ridflex): continue # this dihedral will be flexible
+      #if(ridi<=ridflex or ridj<=ridflex or ridk<=ridflex or ridl<=ridflex): continue # this dihedral will be flexible
+      if (inflex(ridi) or inflex(ridj) or inflex(ridk) or inflex(ridl)): continue
       # bond k-i-j-l
       if(bondmatrix[k,i] and bondmatrix[l,j]):
         # n=1
@@ -398,8 +405,20 @@ for b in bonds:
         dihedrals.append(d)
 print '#',len(dihedrals),'dihedrals created'
 # create disulfide bridge, after angles and dihedrals
-idcys1=131
-idcys2=166
+#Create two disulfide bridges 
+idcys1=62
+idcys2=70
+b=Bond()
+nbonds+=1
+b.id=nbonds
+b.type=b.id
+b.a1=cgatoms[idcys1-1]
+b.a2=cgatoms[idcys2-1]
+b.name='%s%d-%s%d'%(b.a1.type,b.a1.rid,b.a2.type,b.a2.rid)
+bonds.append(b)
+
+idcys1=84
+idcys2=104
 b=Bond()
 nbonds+=1
 b.id=nbonds
