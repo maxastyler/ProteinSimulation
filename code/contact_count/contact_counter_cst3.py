@@ -8,14 +8,13 @@ from itertools import combinations
 import matplotlib.pyplot as plt
 
 #List of temperatures that have been done by the script
-old_temps=[2, 5, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 142, 145, 147, 150, 152, 155, 158, 160, 163, 165, 170, 175, 180, 185, 190, 195, 200]
-temps=[2, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100]
+#temps=[2, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100]
+temps=[100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185]
+
 
 #sigmoid function of the form f(x)=A/(1+B*exp(-C*x)+D
-cg_path='../../protein/cystatin/3GAX/7-aNewCoarsegrained/'
-old_cg_path='../../protein/cystatin/3GAX/7-coarsegrained/'
+cg_path='../../protein/cystatin/3GAX/7-coarsegrained/'
 sim_path='../../lammps_scripts/cst3_temp/'
-old_sim_path='../../lammps_scripts/cst3_temp_old/'
 
 def sigmoid(x, A, B, C, D):
     return A/(1+np.exp(-B*(x-C))) + D
@@ -66,22 +65,16 @@ def best_hummer_q(traj, native):
     return q
 
 native = md.load(cg_path+'cg_3gax_filtered.pdb')
-old_native = md.load(old_cg_path+'cg_3gax_filtered.pdb')
 trajs = map(lambda fname: md.load(sim_path+'run.{0}.xtc'.format(fname), top=cg_path+'cg_3gax_filtered.pdb'), temps)
-old_trajs = map(lambda fname: md.load(old_sim_path+'run.{0}.xtc'.format(fname), top=old_cg_path+'cg_3gax_filtered.pdb'), old_temps)
 contacts = map(lambda x: best_hummer_q(x, native), trajs)
-old_contacts = map(lambda x: best_hummer_q(x, old_native), old_trajs)
 #traj=md.load(sim_path+'run.60.xtc', top=cg_path+'cg_3gax_filtered.pdb')
 if __name__=='__main__':
 
     #Average the contacts, remove the first few values before the protein gets to equilibrium
     avgs = map(np.average, map(lambda x: x[6:], list(contacts)))
-    old_avgs = map(np.average, map(lambda x: x[6:], list(old_contacts)))
     ys=list(avgs)
-    old_ys=list(old_avgs)
     
     plt.plot(temps, ys)
-    plt.plot(old_temps, old_ys)
     #fitted_curve=curve_fit(sigmoid, temps, ys, p0=[-0.8, 1, 150, 1])
     #print(fitted_curve[0])
     #gen_ys=[sigmoid(i, fitted_curve[0][0], fitted_curve[0][1], fitted_curve[0][2], fitted_curve[0][3]) for i in temps]
