@@ -5,6 +5,8 @@
 #For CST3 :
 #   Maybe make residue 67 - 75 floppy?
 #   Add disulfide bond to C62-C70 and C84-C104
+#For 1A67:
+#   Make residues 63-83 floppy
 
 import sys
 import math
@@ -334,7 +336,7 @@ else: print '#',len(angles),'angles created'
 # search for dihedrals starting from the bond i-j
 ndihedrals=0
 #ridflex=16 # included
-ridflex = (67,75) #inclusive
+ridflex = (63,83) #inclusive
 def inbetween(x, min_max): # inclusive
     if (x>=min_max[0] and x<=min_max[1]): return True
     else: return False
@@ -404,29 +406,6 @@ for b in bonds:
         d.name='%s%d-%s%d-%s%d-%s%d-n%d'%(d.a1.type,d.a1.rid,d.a2.type,d.a2.rid,d.a3.type,d.a3.rid,d.a4.type,d.a4.rid,d.n)
         dihedrals.append(d)
 print '#',len(dihedrals),'dihedrals created'
-# create disulfide bridge, after angles and dihedrals
-#Create two disulfide bridges 
-idcys1=62
-idcys2=70
-b=Bond()
-nbonds+=1
-b.id=nbonds
-b.type=b.id
-b.a1=cgatoms[idcys1-1]
-b.a2=cgatoms[idcys2-1]
-b.name='%s%d-%s%d'%(b.a1.type,b.a1.rid,b.a2.type,b.a2.rid)
-bonds.append(b)
-
-idcys1=84
-idcys2=104
-b=Bond()
-nbonds+=1
-b.id=nbonds
-b.type=b.id
-b.a1=cgatoms[idcys1-1]
-b.a2=cgatoms[idcys2-1]
-b.name='%s%d-%s%d'%(b.a1.type,b.a1.rid,b.a2.type,b.a2.rid)
-bonds.append(b)
 
 # define hamiltonian
 eps=1.0*0.239 # energy given in kcal/mol
