@@ -77,6 +77,9 @@ if __name__=='__main__':
     ys=list(avgs)
     
     plt.plot(temps, ys)
+    plt.title('Fraction of Native Contacts for Coarsegrained CST3 vs Temperature')
+    plt.xlabel('Temperature (LAMMPS units)')
+    plt.ylabel('Native Contact Fraction')
     #fitted_curve=curve_fit(sigmoid, temps, ys, p0=[-0.8, 1, 150, 1])
     #print(fitted_curve[0])
     #gen_ys=[sigmoid(i, fitted_curve[0][0], fitted_curve[0][1], fitted_curve[0][2], fitted_curve[0][3]) for i in temps]
