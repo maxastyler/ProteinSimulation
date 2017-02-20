@@ -59,15 +59,12 @@ def best_hummer_q(traj, native):
     return q
 
 native = md.load(cg_path+'cg_3gax_wall.pdb')
-contacts = map(lambda x: best_hummer_q(x, native), trajs)
-#traj=md.load(sim_path+'run.60.xtc', top=cg_path+'cg_3gax_filtered.pdb')
+traj=md.load(sim_path+'wall0.248-124.xtc', top=cg_path+'cg_3gax_wall.pdb')
+contacts=best_hummer_q(traj, native)
 if __name__=='__main__':
 
     #Average the contacts, remove the first few values before the protein gets to equilibrium
-    avgs = map(np.average, map(lambda x: x[6:], list(contacts)))
-    ys=list(avgs)
-    
-    plt.plot(temps, ys)
+    plt.plot(contacts)
     #fitted_curve=curve_fit(sigmoid, temps, ys, p0=[-0.8, 1, 150, 1])
     #print(fitted_curve[0])
     #gen_ys=[sigmoid(i, fitted_curve[0][0], fitted_curve[0][1], fitted_curve[0][2], fitted_curve[0][3]) for i in temps]
