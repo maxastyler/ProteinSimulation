@@ -1,6 +1,6 @@
 #Set the temperature variable
-variable a loop 9
-variable t index 105 115 125 135 145 155 165 175 185
+variable a loop 6
+variable t index 126 130 134 138 142 146
 
 label loopstart
 # set logfile
@@ -64,8 +64,8 @@ timestep        0.5
 reset_timestep  0
 
 #On my quad core i5 - runs around 9800 steps/s (running with mpirun 4 cores (100% cpu usage) )
-restart		200000 restart.$t.run
-run		200000
+restart		1000000 restart.$t.run
+run		1000000
 clear
 
 next t

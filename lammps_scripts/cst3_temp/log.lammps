@@ -1,0 +1,9 @@
+LAMMPS (10 Feb 2016)
+#Set the temperature variable
+variable a loop 6
+variable t index 126 130 134 138 142 146
+
+label loopstart
+# set logfile
+log		log.run.$t
+log		log.run.126
