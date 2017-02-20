@@ -1,0 +1,228 @@
+
+ **************************************************
+ Thank you for using the Noel-Onuchic-Whitford 
+ Structure-Based Model (SMOG) software, Version 1.2.3          
+
+ Primary references:
+
+ All-Atom Models
+ Whitford et al. Proteins. 75, 430-441, 2009.
+
+ C-alpha Protein Model
+ Clementi et al. J Mol Biol. 298, 937-953, 2000.
+
+ SMOG software
+ Noel, Levi, Raghunathan, Lammert, Hayes,
+ Onuchic and Whitford.  PLOS Comp. Biol. 2016
+ DOI: 10.1371/journal.pcbi.1004794
+ **************************************************
+
+ System will not be shifted.
+ All-Atom  graining will be used
+ checked pdb file.  All atoms were recognized.
+ PDB file read in
+ NOTE: This webtool only uses coordinate precision to 10^-2 A
+ starting bond calculations
+ bonds done  1.99998915E-03 seconds elapsed
+ starting bond angle calculations
+ bond  angles done   0.0000000     seconds elapsed
+ starting dihedral calculations
+ dihedrals done  1.99900568E-03 seconds elapsed
+ starting contact calculations
+ A cut-off distance will be used for calculating contacts
+   4.0000000000000000       for proteins
+   4.0000000000000000       for DNA
+   4.0000000000000000      for DNA-Protein
+ The XYZ dimensions of the grid used 
+ for contact calculations are
+   50.408000946044922        34.898002624511719        35.115997314453125     
+ contacts done  0.55191702     seconds elapsed
+ starting non-contact calculations
+ non-contacts will be given a repulsive distance of
+   2.5000000000000000      Angstroms
+ non-contacts will be given a repulsive epsilon of
+  1.00000000000000002E-002
+ repulsive done
+ non-contacts done   0.0000000     seconds elapsed
+ writing parameters to file...
+ WARNING: bond number         863 is missing an atom
+ attempting to connect atoms (gro numbering)         847           0
+
+ WARNING: bond number         864 is missing an atom
+ attempting to connect atoms (gro numbering)         847           0
+
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+         155         156         157
+
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+         629         630         631
+
+ WARNING: bond angle number        1166 is missing an atom
+ attempting to connect atoms (gro numbering)         846         847           0
+
+ WARNING: bond angle number        1167 is missing an atom
+ attempting to connect atoms (gro numbering)         846         847           0
+
+ WARNING: bond angle number        1168 is missing an atom
+ attempting to connect atoms (gro numbering)           0         847           0
+
+ WARNING: dihedral number        1613 is missing an atom
+ attempting to connect atoms(gro numbering)         845         846         847           0
+
+ WARNING: dihedral number        1614 is missing an atom
+ attempting to connect atoms(gro numbering)         845         846         847           0
+
+ WARNING: dihedral number        1616 is missing an atom
+ attempting to connect atoms(gro numbering)         848         846         847           0
+
+ WARNING: dihedral number        1618 is missing an atom
+ attempting to connect atoms(gro numbering)         848         846         847           0
+
+ SUCCESS : GRO and TOP files have been written.
+
+Starting calculation of the shadow map.
+SHADOW Settings...
+Maximum contact distance: 6.0
+Shadowing radius: 1.0
+Minimum sequence difference for protein-protein contacts: 3
+Minimum sequence difference for NA-NA contacts: 0
+Done with Shadow settings.
+
+
+Shadow Contact Map Java Application (SCM)
+Created by Jeff Noel at CTBP-UCSD
+Version 1.31
+
+Reading grofile: 1A67-smog.19640.pdb.gro.
+1 852
+Found 852 atoms.
+Reading Chains from 1A67-smog.19640.pdb.ndx.
+1 852
+Found 1 chains.
+Reading Topology.
+Found 556 pairs.
+Initializing connected list.
+Found 36 atom types.
+Found 556 pairs.
+Found 867 bonds.
+Found 1172 angles.
+Found 2635 dihedrals.
+Calculating contacts.
+Printing reindexed PDB to file: 1A67-smog.19640.pdb.meta.pdb.
+Each chain will start with residue 1 and atom 1.
+Printing contacts to file: 1A67-smog.19640.pdb.contacts.
+Reindexing to correspond with the reindexed PDB.
+******* Parameters Used *********
+Atom shadowing size: 1.0
+Cutoff radius: 6.0
+Sequence distance between protein contacts: 3
+Sequence distance between RNA/DNA contacts: 0
+Shadowing size of bonded atom: 0.5
+*********************************
+Total time: 1.081 seconds.
+*****************************************************************
+This software is part of SMOG.  http://smog-server.org
+Direct questions to: info@smog-server.org
+Work utilizing SMOG should cite:
+
+Noel JK, Whitford PC, Sanbonmatsu KY & Onuchic JN (2010)
+SMOG@ctbp: simplified deployment of structure-based models in GROMACS.
+Nucleic Acids Research, 38, W657?61. DOI: 10.1093/nar/gkq498
+
+Work using the Shadow contact map should cite:
+
+Noel, JK, Whitford PC & Onuchic JN (2012)
+The shadow map: a general contact definition for capturing the 
+dynamics of biomolecular folding and function. 
+Journal of Physical Chemistry B 116, 8692?8702.
+*****************************************************************
+Finished. 
+
+
+
+
+Done with calculation of the shadow map. The following messages will correspond to your simulation settings.
+
+
+ **************************************************
+ Thank you for using the Noel-Onuchic-Whitford 
+ Structure-Based Model (SMOG) software, Version 1.2.3          
+
+ Primary references:
+
+ All-Atom Models
+ Whitford et al. Proteins. 75, 430-441, 2009.
+
+ C-alpha Protein Model
+ Clementi et al. J Mol Biol. 298, 937-953, 2000.
+
+ SMOG software
+ Noel, Levi, Raghunathan, Lammert, Hayes,
+ Onuchic and Whitford.  PLOS Comp. Biol. 2016
+ DOI: 10.1371/journal.pcbi.1004794
+ **************************************************
+
+ System will not be shifted.
+ Heterogeneous masses will be assigned to atoms.
+ All-Atom  graining will be used
+ checked pdb file.  All atoms were recognized.
+ PDB file read in
+ NOTE: This webtool only uses coordinate precision to 10^-2 A
+ starting bond calculations
+ bonds done   0.0000000     seconds elapsed
+ starting bond angle calculations
+ bond  angles done  1.00000203E-03 seconds elapsed
+ starting dihedral calculations
+ dihedrals done   0.0000000     seconds elapsed
+ starting contact calculations
+ contacts done  1.99899822E-03 seconds elapsed
+ starting non-contact calculations
+ non-contacts will be given a repulsive distance of
+   2.5000000000000000      Angstroms
+ non-contacts will be given a repulsive epsilon of
+  1.00000000000000002E-002
+ repulsive done
+ non-contacts done   0.0000000     seconds elapsed
+ writing parameters to file...
+ WARNING: bond number         863 is missing an atom
+ attempting to connect atoms (gro numbering)         847           0
+
+ WARNING: bond number         864 is missing an atom
+ attempting to connect atoms (gro numbering)         847           0
+
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+         155         156         157
+
+ WARNING: Bond angle is under 100 degrees.
+ Your structure may be strange. 
+ Offending bond between atoms
+         629         630         631
+
+ WARNING: bond angle number        1166 is missing an atom
+ attempting to connect atoms (gro numbering)         846         847           0
+
+ WARNING: bond angle number        1167 is missing an atom
+ attempting to connect atoms (gro numbering)         846         847           0
+
+ WARNING: bond angle number        1168 is missing an atom
+ attempting to connect atoms (gro numbering)           0         847           0
+
+ WARNING: dihedral number        1613 is missing an atom
+ attempting to connect atoms(gro numbering)         845         846         847           0
+
+ WARNING: dihedral number        1614 is missing an atom
+ attempting to connect atoms(gro numbering)         845         846         847           0
+
+ WARNING: dihedral number        1616 is missing an atom
+ attempting to connect atoms(gro numbering)         848         846         847           0
+
+ WARNING: dihedral number        1618 is missing an atom
+ attempting to connect atoms(gro numbering)         848         846         847           0
+
+ SUCCESS : GRO and TOP files have been written.
