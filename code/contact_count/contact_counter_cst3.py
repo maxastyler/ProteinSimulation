@@ -9,7 +9,9 @@ import matplotlib.pyplot as plt
 
 #List of temperatures that have been done by the script
 #temps=[2, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100]
-temps=[100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185]
+#temps=[100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180, 185]
+temps=([i for i in range(100, 185, 4)]+[i for i in range(126, 147, 4)])
+temps.sort()
 
 
 #sigmoid function of the form f(x)=A/(1+B*exp(-C*x)+D
