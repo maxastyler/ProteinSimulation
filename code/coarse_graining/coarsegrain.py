@@ -4,7 +4,7 @@
 #   Add a disulfide bond between the cysteines C68-C86
 #For CST3 :
 #   Maybe make residue 67 - 75 floppy?
-#   Add disulfide bond to C62-C70 and C84-C104
+#  --DONT this is for stapling shut - not necessary  -- Add disulfide bond to C62-C70 and C84-C104
 #For 1A67:
 #   Make residues 63-83 floppy
 
@@ -159,9 +159,7 @@ def coarsegrain(atoms,aacontacts):
       for aii in ai.atoms:
         for ajj in aj.atoms:
           if( (aii.id,ajj.id) in aacontacts ):
-            if((aj.rid-ai.rid)<=3): #print '# error: (aj.rid-ai.rid)<=3'; sys.exit()
-                print "# Warning: (aj.rid-ai.rid)<=3"
-                print "At aj.rid: " + str(aj.rid) + " and ai.rid: " + str(ai.rid)
+            if((aj.rid-ai.rid)<=3): print '# error: (aj.rid-ai.rid)<=3'; sys.exit()
             if(ai.id>=aj.id): print 'error: ai.id>=aj.id'; sys.exit()
             if( (ai.id,aj.id) not in nativepairs ):
               pair=Bond()
@@ -338,7 +336,7 @@ else: print '#',len(angles),'angles created'
 # search for dihedrals starting from the bond i-j
 ndihedrals=0
 #ridflex=16 # included
-ridflex = (63,83) #inclusive
+ridflex = (67,75) #inclusive
 def inbetween(x, min_max): # inclusive
     if (x>=min_max[0] and x<=min_max[1]): return True
     else: return False
@@ -354,7 +352,7 @@ for b in bonds:
       ridl=cgatoms[l].rid
       if(l==i or l==j or k==i or k==j): continue
       #if(ridi<=ridflex or ridj<=ridflex or ridk<=ridflex or ridl<=ridflex): continue # this dihedral will be flexible
-      #if (inflex(ridi) or inflex(ridj) or inflex(ridk) or inflex(ridl)): continue
+      if (inflex(ridi) or inflex(ridj) or inflex(ridk) or inflex(ridl)): continue
       # bond k-i-j-l
       if(bondmatrix[k,i] and bondmatrix[l,j]):
         # n=1
