@@ -209,8 +209,10 @@ print '# reading ',sys.argv[2],'..'
 aacontacts={}
 for l in infile:
   pair=l.split()
-  ida=int(pair[0])
-  idb=int(pair[1])
+  if len(pair)!=4: continue
+  print(pair)
+  ida=int(pair[1])
+  idb=int(pair[3])
   aacontacts[(ida,idb)]=1
   aacontacts[(idb,ida)]=1
 
@@ -352,7 +354,7 @@ for b in bonds:
       ridl=cgatoms[l].rid
       if(l==i or l==j or k==i or k==j): continue
       #if(ridi<=ridflex or ridj<=ridflex or ridk<=ridflex or ridl<=ridflex): continue # this dihedral will be flexible
-      if (inflex(ridi) or inflex(ridj) or inflex(ridk) or inflex(ridl)): continue
+      #if (inflex(ridi) or inflex(ridj) or inflex(ridk) or inflex(ridl)): continue
       # bond k-i-j-l
       if(bondmatrix[k,i] and bondmatrix[l,j]):
         # n=1
