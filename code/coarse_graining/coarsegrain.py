@@ -208,7 +208,6 @@ aacontacts={}
 for l in infile:
   pair=l.split()
   if len(pair)!=4: continue
-  print(pair)
   ida=int(pair[1])
   idb=int(pair[3])
   aacontacts[(ida,idb)]=1
@@ -336,7 +335,7 @@ else: print '#',len(angles),'angles created'
 # search for dihedrals starting from the bond i-j
 ndihedrals=0
 #ridflex=16 # included
-ridflex = (67,75) #inclusive
+ridflex = (63,83) #inclusive
 def inbetween(x, min_max): # inclusive
     if (x>=min_max[0] and x<=min_max[1]): return True
     else: return False
