@@ -7,6 +7,7 @@ import mdtraj as md
 from itertools import combinations
 import matplotlib.pyplot as plt
 
+
 cg_path='../../wall_oil_energy/cst3/'
 sim_path=cg_path
 
@@ -63,8 +64,12 @@ traj=md.load(sim_path+'wall0.248-124.xtc', top=cg_path+'cg_3gax_wall.pdb')
 contacts=best_hummer_q(traj, native)
 if __name__=='__main__':
 
+    plt.rc('text', usetex=True)
     #Average the contacts, remove the first few values before the protein gets to equilibrium
     plt.plot(contacts)
+    plt.title(r'Fraction of Native Contacts Over Simulation Time for CST3 (E_{wall}=0.248)')
+    plt.xlabel('Timestep')
+    plt.ylabel('Native Contact Fraction')
     #fitted_curve=curve_fit(sigmoid, temps, ys, p0=[-0.8, 1, 150, 1])
     #print(fitted_curve[0])
     #gen_ys=[sigmoid(i, fitted_curve[0][0], fitted_curve[0][1], fitted_curve[0][2], fitted_curve[0][3]) for i in temps]
