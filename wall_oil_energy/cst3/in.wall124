@@ -66,5 +66,5 @@ timestep        0.5
 reset_timestep  0
 
 fix		pwallfreeze pwall setforce 0.0 0.0 0.0 # freeze the particle after plumed, otherwise it will move
-restart 	5000000 restart.wall.run
-run		5000000
+restart 	50000000 restart.wall.run
+run		50000000
