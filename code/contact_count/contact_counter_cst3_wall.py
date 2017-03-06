@@ -14,7 +14,7 @@ sim_path=cg_path
 def sigmoid(x, A, B, C, D):
     return A/(1+np.exp(-B*(x-C))) + D
 
-def best_hummer_q(traj, native):
+def best_hummer_q(traj, native, atom_indices=None):
     """Compute the fraction of native contacts according the definition from
     Best, Hummer and Eaton [1]
     ----------
@@ -38,19 +38,20 @@ def best_hummer_q(traj, native):
     """
     BETA_CONST = 50  # 1/nm
     LAMBDA_CONST = 1.8
-    NATIVE_CUTOFF = 0.45  # nanometers
+    #NATIVE_CUTOFF = 0.45  # nanometers
+    NATIVE_CUTOFF = 0.6
     # get the indices of all of the heavy atoms
-    heavy = native.topology.select_atom_indices('heavy')
+    if atom_indices is None: atom_indices = native.topology.select_atom_indices('heavy')
     # get the pairs of heavy atoms which are farther than 3
     # residues apart
-    heavy_pairs = np.array(
-        [(i,j) for (i,j) in combinations(heavy, 2)
+    index_pairs = np.array(
+        [(i,j) for (i,j) in combinations(atom_indices, 2)
             if abs(native.topology.atom(i).residue.index - \
                    native.topology.atom(j).residue.index) > 3])
     # compute the distances between these pairs in the native state
-    heavy_pairs_distances = md.compute_distances(native[0], heavy_pairs)[0]
+    pairs_distances = md.compute_distances(native[0], index_pairs)[0]
     # and get the pairs s.t. the distance is less than NATIVE_CUTOFF
-    native_contacts = heavy_pairs[heavy_pairs_distances < NATIVE_CUTOFF]
+    native_contacts = index_pairs[pairs_distances < NATIVE_CUTOFF]
     print("Number of native contacts", len(native_contacts))
     # now compute these distances for the whole trajectory
     r = md.compute_distances(traj, native_contacts)
@@ -59,14 +60,21 @@ def best_hummer_q(traj, native):
     q = np.mean(1.0 / (1 + np.exp(BETA_CONST * (r - LAMBDA_CONST * r0))), axis=1)
     return q
 
+
 native = md.load(cg_path+'cg_3gax_wall.pdb')
 traj=md.load(sim_path+'wall0.248-124.xtc', top=cg_path+'cg_3gax_wall.pdb')
-contacts=best_hummer_q(traj, native)
+print(traj.top.select("resSeq 50 to 70"))
+alpha_contacts=best_hummer_q(traj, native, traj.top.select("resSeq 10 to 26"))
+beta_contacts=best_hummer_q(traj, native, traj.top.select("(resSeq 82 to 106) or (resSeq 31 to 62)"))
+all_contacts=best_hummer_q(traj, native)
+print(native[0])
 if __name__=='__main__':
 
     plt.rc('text', usetex=True)
     #Average the contacts, remove the first few values before the protein gets to equilibrium
-    plt.plot(contacts)
+    plt.plot(all_contacts)
+    plt.plot(beta_contacts)
+    plt.plot(alpha_contacts)
     plt.title(r'Fraction of Native Contacts Over Simulation Time for CST3 (E_{wall}=0.248)')
     plt.xlabel('Timestep')
     plt.ylabel('Native Contact Fraction')
