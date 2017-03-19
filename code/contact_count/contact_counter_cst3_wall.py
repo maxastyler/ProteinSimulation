@@ -38,8 +38,8 @@ def best_hummer_q(traj, native, atom_indices=None):
     """
     BETA_CONST = 50  # 1/nm
     LAMBDA_CONST = 1.8
-    #NATIVE_CUTOFF = 0.45  # nanometers
-    NATIVE_CUTOFF = 0.6
+    NATIVE_CUTOFF = 0.5  # nanometers
+    #NATIVE_CUTOFF = 0.6
     # get the indices of all of the heavy atoms
     if atom_indices is None: atom_indices = native.topology.select_atom_indices('heavy')
     # get the pairs of heavy atoms which are farther than 3
