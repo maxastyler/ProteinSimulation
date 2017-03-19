@@ -63,6 +63,6 @@ timestep        0.5
 reset_timestep  0
 
 #On my quad core i5 - runs around 9800 steps/s (running with mpirun 4 cores (100% cpu usage) )
-restart		1000000 restart.$t.run
-run		1000000
+restart		50000000 restart.$t.run
+run		50000000
 clear
