@@ -1,6 +1,0 @@
-LAMMPS (10 Mar 2017)
-# set the temperature equal to 0.9*T_FOLDING
-variable t equal 124
-# set logfile
-log		log.run$t
-log		log.run124
