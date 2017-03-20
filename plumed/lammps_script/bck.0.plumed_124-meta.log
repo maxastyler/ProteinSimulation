@@ -1,0 +1,12 @@
+PLUMED: PLUMED is starting
+PLUMED: Version: 2.3.0 (git: Unknown) compiled on Mar 12 2017 at 19:06:13
+PLUMED: Please cite this paper when using PLUMED [1]
+PLUMED: For further information see the PLUMED web page at http://www.plumed.org
+PLUMED: Molecular dynamics engine: LAMMPS
+PLUMED: Precision of reals: 8
+PLUMED: Running over 1 node
+PLUMED: Number of threads: 1
+PLUMED: Cache line size: 512
+PLUMED: Number of atoms: 208
+PLUMED: File suffix: 
+PLUMED: FILE: plumed_124-meta.dat
