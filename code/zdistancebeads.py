@@ -19,7 +19,8 @@ with open(file_to_open) as open_file:
 interaction_ids=[]
 
 for key in res_energy:
-    if res_energy[key]!=0:
+    if res_energy[key]!="0":
+        print(key)
         interaction_ids += res_id[key]
 
 interaction_nums=[int(i) for i in interaction_ids]
