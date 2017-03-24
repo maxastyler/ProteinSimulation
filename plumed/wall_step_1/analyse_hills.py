@@ -3,7 +3,7 @@ import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
-my_files = ["fes_124_{}.dat".format(i) for i in range(0, 1)]
+my_files = ["fes_124_{}.dat".format(i) for i in range(3, 4)]
 
 def extract_1d_file_data(f_path):
     x_data=[]
@@ -65,4 +65,4 @@ def show_2d():
 
     plt.show()
 
-show_2d()
+show_1d()
