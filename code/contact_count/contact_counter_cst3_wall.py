@@ -7,8 +7,8 @@ import mdtraj as md
 from itertools import combinations
 import matplotlib.pyplot as plt
 
-
-cg_path='../../wall_oil_energy/cst3/'
+energy='0.244'
+cg_path='../../wall_oil_energy/cst3-'+energy+'/'
 sim_path=cg_path
 
 def sigmoid(x, A, B, C, D):
@@ -62,7 +62,7 @@ def best_hummer_q(traj, native, atom_indices=None):
 
 
 native = md.load(cg_path+'cg_3gax_wall.pdb')
-traj=md.load(sim_path+'wall0.248-124.xtc', top=cg_path+'cg_3gax_wall.pdb')
+traj=md.load(sim_path+'wall{0}-124.xtc'.format(energy), top=cg_path+'cg_3gax_wall.pdb')
 print(traj.top.select("resSeq 50 to 70"))
 alpha_contacts=best_hummer_q(traj, native, traj.top.select("resSeq 10 to 26"))
 beta_contacts=best_hummer_q(traj, native, traj.top.select("(resSeq 82 to 106) or (resSeq 31 to 62)"))
