@@ -3,7 +3,7 @@ import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
-my_files = ["fes_124_{}.dat".format(i) for i in range(3, 4)]
+my_files = ["fes_124_{}.dat".format(i) for i in range(20, 21)]
 
 def extract_1d_file_data(f_path):
     x_data=[]
@@ -54,13 +54,15 @@ def show_1d():
 
         for i in range(len(xs)):
             plt.plot(xs[i], ys[i])
+    plt.xlabel("distance from interface (nm)")
+    plt.ylabel("energy (kT)")
 
     plt.show()
 
 def show_2d():
     fig=plt.figure()
     ax = fig.gca(projection='3d')
-    xs, ys, zs = extract_2d_file_data('fes_124_3.dat')
+    xs, ys, zs = extract_2d_file_data('fes_124_')
     surf = ax.plot_surface(xs, ys, zs, cmap=cm.coolwarm, linewidth=0, antialiased=False)
 
     plt.show()
