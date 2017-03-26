@@ -7,6 +7,7 @@ import mdtraj as md
 from itertools import combinations
 import matplotlib.pyplot as plt
 
+chunked = 100
 energy='0.244'
 cg_path='../../wall_oil_energy/cst3-'+energy+'/'
 sim_path=cg_path
@@ -60,6 +61,16 @@ def best_hummer_q(traj, native, atom_indices=None):
     q = np.mean(1.0 / (1 + np.exp(BETA_CONST * (r - LAMBDA_CONST * r0))), axis=1)
     return q
 
+def average_array(xs, ys, n):
+    remainder = len(xs)%n
+    added = int(remainder!=0)
+    new_len=added+int(len(xs)/n)
+    x_chunked=[xs[i:i+n] for i in range(0, len(xs), n)]
+    y_chunked=[ys[i:i+n] for i in range(0, len(ys), n)]
+    x_avg = [sum(i)/len(i) for i in x_chunked]
+    y_avg = [sum(i)/len(i) for i in y_chunked]
+    return x_avg, y_avg
+
 
 native = md.load(cg_path+'cg_3gax_wall.pdb')
 traj=md.load(sim_path+'wall{0}-124.xtc'.format(energy), top=cg_path+'cg_3gax_wall.pdb')
@@ -72,16 +83,13 @@ if __name__=='__main__':
 
     plt.rc('text', usetex=True)
     #Average the contacts, remove the first few values before the protein gets to equilibrium
-    plt.plot(all_contacts)
-    plt.plot(beta_contacts)
-    plt.plot(alpha_contacts)
+    all_x, all_y = average_array(range(len(all_contacts)), all_contacts, chunked)
+    alpha_x, alpha_y = average_array(range(len(alpha_contacts)), alpha_contacts, chunked)
+    beta_x, beta_y = average_array(range(len(beta_contacts)), beta_contacts, chunked)
+    plt.plot(all_x, all_y)
+    plt.plot(alpha_x, alpha_y)
+    plt.plot(beta_x, beta_y)
     plt.title(r'Fraction of Native Contacts Over Simulation Time for CST3 (E_{wall}=0.248)')
     plt.xlabel('Timestep')
     plt.ylabel('Native Contact Fraction')
-    #fitted_curve=curve_fit(sigmoid, temps, ys, p0=[-0.8, 1, 150, 1])
-    #print(fitted_curve[0])
-    #gen_ys=[sigmoid(i, fitted_curve[0][0], fitted_curve[0][1], fitted_curve[0][2], fitted_curve[0][3]) for i in temps]
-    #residuals=[gen_ys[i]-ys[i] for i in range(len(ys))]
-    #plt.plot(temps, gen_ys)
-    #plt.plot(temps, residuals)
     plt.show()
