@@ -19,7 +19,6 @@ def sigmoid(x, A, B, C, D):
 
 native = md.load(cg_path+'cg_3gax_wall.pdb')
 traj=md.load(sim_path+'wall{0}-124.xtc'.format(energy), top=cg_path+'cg_3gax_wall.pdb')
-print(traj.top.select("resSeq 50 to 70"))
 alpha_contacts=best_hummer_q(traj, native, traj.top.select("resSeq 10 to 26"))
 beta_contacts=best_hummer_q(traj, native, traj.top.select("(resSeq 82 to 106) or (resSeq 31 to 62)"))
 all_contacts=best_hummer_q(traj, native)
