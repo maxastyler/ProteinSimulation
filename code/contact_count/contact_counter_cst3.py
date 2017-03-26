@@ -6,6 +6,7 @@ from scipy.optimize import curve_fit
 import mdtraj as md
 from itertools import combinations
 import matplotlib.pyplot as plt
+from contact_counter_funcs import *
 
 #List of temperatures that have been done by the script
 #temps=[2, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100]
@@ -72,12 +73,14 @@ contacts = map(lambda x: best_hummer_q(x, native), trajs)
 #traj=md.load(sim_path+'run.60.xtc', top=cg_path+'cg_3gax_filtered.pdb')
 if __name__=='__main__':
 
+    plt.rc('text', usetex=True)
+    matplotlib.rcParams.update({'font.size': 16})
     #Average the contacts, remove the first few values before the protein gets to equilibrium
     avgs = map(np.average, map(lambda x: x[6:], list(contacts)))
     ys=list(avgs)
     
     plt.plot(temps, ys)
-    plt.title('Fraction of Native Contacts for Coarsegrained CST3 vs Temperature')
+    #plt.title('Fraction of Native Contacts for Coarsegrained CST3 vs Temperature')
     plt.xlabel('Temperature (LAMMPS units)')
     plt.ylabel('Native Contact Fraction')
     #fitted_curve=curve_fit(sigmoid, temps, ys, p0=[-0.8, 1, 150, 1])
