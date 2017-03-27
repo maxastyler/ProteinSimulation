@@ -67,4 +67,4 @@ def show_2d():
 
     plt.show()
 
-show_1d()
+show_2d()
