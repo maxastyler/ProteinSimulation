@@ -41,8 +41,9 @@ for i in range(len(xvalues)):
 
 # do the acutal plotting
 levels = np.arange(0,18,2)
+levelscs = np.arange(0, 18, 4)
 CSF = contourf(xi,yi,zi)
-CS = contour(xi,yi,zi,levels,colors=('k'))
+CS = contour(xi,yi,zi,levelscs)
 bar = colorbar(CSF)
 bar.set_label('energy (kT)')
 #clabel(CS)
