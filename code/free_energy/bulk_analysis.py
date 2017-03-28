@@ -7,8 +7,8 @@ from scipy.spatial import Delaunay
 
 # parameters
 label='wt'
-file='../../plumed/bulk/fes_137.7_avg.dat'
-eunit=0.861718724 # 1/(2.479/298*139.5) , 1 kj/mol in kt
+file='../../plumed/bulk/histo.dat'
+eunit=1/(2.479/298*137.7) # 1/(2.479/298*139.5) , 1 kj/mol in kt
 # set xran,yran
 xvalues = np.arange(0.0,1.001,0.005)
 yvalues = np.arange(0.0,1.001,0.005)
@@ -23,10 +23,9 @@ nab=nbeta+nalpha
 noth=nall-nbeta-nalpha
 nothnoc=nall-nctail-nbeta-nalpha
 data = np.loadtxt(file)
-print(data)
 data = data[data[:,2]!=data[:,2]+1] # numbers different from nan,+inf,-inf
-x =  1.0*data[:,0]/nab	# fraction of secondary structure contacts
-y =  1.0*data[:,1]/nothnoc	# fraction of core contacts
+x =  1.0*data[:,0]/nall	# fraction of native contacts
+y =  1.0*data[:,1]/nab	# fraction of core contacts
 z =  data[:,2]*eunit		# energy
 min=np.nanmin(z)
 z=z-min
@@ -50,4 +49,5 @@ xlabel('alpha and beta contacts (fraction)')
 ylabel('core contacts (fraction)')
 
 # save
-savefig('fes_bulk_wt_reweight.pdf')
+#savefig('fes_bulk_wt_reweight.pdf')
+plt.show()
