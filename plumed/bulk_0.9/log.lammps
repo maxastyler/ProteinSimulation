@@ -1,0 +1,5 @@
+LAMMPS (10 Feb 2016)
+variable t equal 124
+# set logfile
+log		log.run$t
+log		log.run124
