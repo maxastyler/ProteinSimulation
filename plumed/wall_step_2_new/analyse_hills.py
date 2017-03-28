@@ -1,9 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib import rc
+import matplotlib
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
 my_files = ["fes_124_{}.dat".format(i) for i in range(6)]
+rc('text', usetex=True)
+
+matplotlib.rcParams.update({'font.size': 16})
 
 def extract_1d_file_data(f_path):
     x_data=[]
@@ -64,11 +69,12 @@ def show_contour():
     xs, ys, zs = extract_2d_file_data('histo.dat')
     xs=xs/46
     levels=np.arange(np.min(zs), np.max(zs), 0.5)
-    csf=plt.contourf(xs, ys, zs, cmap=cm.coolwarm, levels=levels)
+    csf=plt.contourf(xs, ys, zs, levels=levels)
+    cs=plt.contour(xs, ys, zs, levels=levels, colors=('k'))
     cbar=fig.colorbar(csf)
-    cbar.set_label('Free Energy (kbT)')
-    plt.xlabel("Alpha-Beta native contact fraction")
-    plt.ylabel("Distance from interface (nm)")
+    cbar.set_label(r'Free Energy ($k_BT$)')
+    plt.xlabel(r"$\alpha\leftrightarrow\beta$ native contact fraction")
+    plt.ylabel(r"Distance from interface (nm)")
     plt.show()
 
 def show_2d():

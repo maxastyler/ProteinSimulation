@@ -1,0 +1,6 @@
+# molinfo
+WHOLEMOLECULES STRIDE=1 ENTITY0=1-208
+
+INCLUDE FILE=contacts_plumed_input.dat
+
+PRINT ARG=all,beta_beta,alpha_alpha,alpha_beta,ctail_glob STRIDE=1 FILE=colvar.dat

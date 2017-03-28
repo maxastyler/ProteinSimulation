@@ -1,9 +1,15 @@
 import matplotlib.pyplot as plt
+from matplotlib import rc
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
+import matplotlib
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
 my_files = ["fes_124_{}.dat".format(i) for i in range(6)]
+
+rc('text', usetex=True)
+
+matplotlib.rcParams.update({'font.size': 16})
 
 def extract_1d_file_data(f_path):
     x_data=[]
@@ -70,13 +76,13 @@ def show_contour():
     zs[zs==np.inf]=np.max(newzs)
     ys=ys/46
     xs=xs/299
-    levels=np.arange(np.min(zs), np.max(zs)-10, 0.5)
-    csf=plt.contourf(xs, ys, zs, cmap=cm.coolwarm, levels=levels)
-    cs=plt.contour(xs, ys, zs, levels=levels, colors='k')
+    levels=np.arange(np.min(zs), 3, 0.6)
+    csf=plt.contourf(xs, ys, zs, levels=levels)
+    cs=plt.contour(xs, ys, zs, levels=levels, colors=('k'))
     cbar=fig.colorbar(csf)
-    cbar.set_label('Free Energy (kbT)')
+    cbar.set_label(r'Free Energy ($k_BT$)')
     plt.xlabel("Total native contact fraction")
-    plt.ylabel("Alpha-Beta native contact fraction")
+    plt.ylabel(r"$\alpha\leftrightarrow\beta$ native contact fraction")
     plt.show()
 
 def show_2d():
