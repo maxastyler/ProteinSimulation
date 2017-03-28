@@ -3,7 +3,7 @@ import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
-my_files = ["fes_137.7_{}.dat".format(i) for i in range(80,81)]
+my_files = ["fes_137.7_{}.dat".format(i) for i in range(38, 41)]
 
 def extract_1d_file_data(f_path):
     x_data=[]
@@ -41,6 +41,7 @@ def extract_2d_file_data(f_path):
         for line in sec:
             zs[-1].append(line[2])
     zs = np.array(zs)
+    print(zs)
     return xs, ys, zs
 
 def show_1d():
@@ -60,9 +61,9 @@ def show_1d():
 def show_2d():
     fig=plt.figure()
     ax = fig.gca(projection='3d')
-    xs, ys, zs = extract_2d_file_data('fes_137.7_3.dat')
+    xs, ys, zs = extract_2d_file_data('histo.dat')
     surf = ax.plot_surface(xs, ys, zs, cmap=cm.coolwarm, linewidth=0, antialiased=False)
 
     plt.show()
 
-show_1d()
+show_2d()
