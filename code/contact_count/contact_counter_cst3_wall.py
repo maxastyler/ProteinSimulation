@@ -10,7 +10,7 @@ import matplotlib
 from contact_counter_funcs import *
 
 chunked = 100
-energy='0.244'
+energy='0.236'
 cg_path='../../wall_oil_energy/cst3-'+energy+'/'
 sim_path=cg_path
 
