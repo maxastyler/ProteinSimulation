@@ -39,7 +39,9 @@ def extract_2d_file_data(f_path):
     for sec in sections:
         zs.append([])
         for line in sec:
-            zs[-1].append(line[2])
+            if line[2]+1!=line[2]:
+                zs[-1].append(line[2])
+            else: zs[-1].append(0)
     zs = np.array(zs)
     return xs, ys, zs
 
@@ -62,7 +64,7 @@ def show_1d():
 def show_2d():
     fig=plt.figure()
     ax = fig.gca(projection='3d')
-    xs, ys, zs = extract_2d_file_data('fes_124_80.dat')
+    xs, ys, zs = extract_2d_file_data('histo.dat')
     surf = ax.plot_surface(xs, ys, zs, cmap=cm.coolwarm, linewidth=0, antialiased=False)
 
     plt.show()
