@@ -59,6 +59,18 @@ def show_1d():
 
     plt.show()
 
+def show_contour():
+    fig=plt.figure()
+    xs, ys, zs = extract_2d_file_data('histo.dat')
+    xs=xs/46
+    levels=np.arange(np.min(zs), np.max(zs), 0.5)
+    csf=plt.contourf(xs, ys, zs, cmap=cm.coolwarm, levels=levels)
+    cbar=fig.colorbar(csf)
+    cbar.set_label('Free Energy (kbT)')
+    plt.xlabel("Alpha-Beta native contact fraction")
+    plt.ylabel("Distance from interface (nm)")
+    plt.show()
+
 def show_2d():
     fig=plt.figure()
     ax = fig.gca(projection='3d')
@@ -67,4 +79,4 @@ def show_2d():
 
     plt.show()
 
-show_2d()
+show_contour()
