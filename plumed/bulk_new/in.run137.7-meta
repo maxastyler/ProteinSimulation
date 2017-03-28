@@ -59,4 +59,4 @@ timestep        0.5
 reset_timestep  0
 
 fix             plumed all plumed plumedfile plumed_$t-meta.dat outfile plumed_$t-meta.log
-run		20000000
+run		30000000
