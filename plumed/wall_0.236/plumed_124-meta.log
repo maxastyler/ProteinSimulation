@@ -5310,20 +5310,30 @@ PLUMED:   with label meta
 PLUMED:   with arguments dcore.z all
 PLUMED:   added component to this action:  meta.bias 
 PLUMED:   The number of bins will be estimated from GRID_SPACING
-PLUMED:   Gaussian width  0.050000 6.000000  Gaussian height 2.000000
+PLUMED:   Gaussian width  0.050000 4.000000  Gaussian height 0.500000
 PLUMED:   Gaussian deposition pace 500
 PLUMED:   Gaussian file hills_124.dat
 PLUMED:   Well-Tempered Bias Factor 10.000000
-PLUMED:   Hills relaxation time (tau) 1.159867
+PLUMED:   Hills relaxation time (tau) 4.639470
 PLUMED:   KbT 1.030993
-PLUMED:   Grid min 0.0 0.0
-PLUMED:   Grid max 9.0 310
-PLUMED:   Grid bin 1801 621
+PLUMED:   Grid min 0 0.0
+PLUMED:   Grid max 8 300
+PLUMED:   Grid bin 1601 501
 PLUMED:   Grid uses spline interpolation
 PLUMED:   added component to this action:  meta.work 
 PLUMED:   Bibliography [2][3]
+PLUMED: Action LOWER_WALLS
+PLUMED:   with label lwall
+PLUMED:   with arguments all
+PLUMED:   added component to this action:  lwall.bias 
+PLUMED:   at 140.000000
+PLUMED:   with an offset 0.000000
+PLUMED:   with force constant 50.000000
+PLUMED:   and exponent 2.000000
+PLUMED:   rescaled 6.000000
+PLUMED:   added component to this action:  lwall.force2 
 PLUMED: Action PRINT
-PLUMED:   with label @593
+PLUMED:   with label @594
 PLUMED:   with stride 500
 PLUMED:   with arguments dcore.z all meta.bias
 PLUMED:   on file colvar_124-meta.dat

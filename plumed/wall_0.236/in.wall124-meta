@@ -59,7 +59,7 @@ thermo_style	custom step temp pe epair ebond eangle edihed
 fix		nve all nve   ###NVE ensemble
 fix		lan all langevin 124 124 1000.0 12308   # Langevin integrator Tstart Tstop 1/friction rndseed
 include		wall_cyc_lmp_input_0.236.dat
-fix		lowall protein wall/lj93 zlo 0.0 0.239 8.0 6.86699 units box
+fix		lowall protein wall/lj93 zlo 0 0.239 8.0 6.86699 units box
 fix		com protein recenter 0.0 0.0 NULL units box
 set		group pwall x 0.0 y 0.0 z 60.0
 timestep        0.5
