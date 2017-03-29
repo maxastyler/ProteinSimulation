@@ -81,7 +81,7 @@ def show_contour():
     cs=plt.contour(xs, ys, zs, levels=levels, colors=('k'))
     cbar=fig.colorbar(csf)
     cbar.set_label(r'Free Energy ($k_BT$)')
-    plt.xlabel("Total native contact fraction")
+    plt.xlabel(r"$\beta$-sheet native contact fraction")
     plt.ylabel(r"$\alpha\leftrightarrow\beta$ native contact fraction")
     plt.show()
 

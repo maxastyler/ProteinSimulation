@@ -76,12 +76,12 @@ def show_contour():
     newzs[newzs==-np.inf]=0
     zs[np.isnan(zs)]=np.max(newzs)
     zs[zs==np.inf]=np.max(newzs)
-    levels=np.arange(np.min(zs), 3, 0.2)
+    levels=np.arange(np.min(zs), 0, 0.2)
     csf=plt.contourf(xs, ys, zs, levels=levels)
     cs=plt.contour(xs, ys, zs, levels=levels, colors=('k'))
     cbar=fig.colorbar(csf)
     cbar.set_label(r'Free Energy ($k_BT$)')
-    plt.xlabel("Total native contact fraction")
+    plt.xlabel(r"$\beta$-sheet native contact fraction")
     plt.ylabel(r"$\alpha\leftrightarrow\beta$ native contact fraction")
     plt.show()
 
