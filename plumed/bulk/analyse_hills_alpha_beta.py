@@ -68,6 +68,8 @@ def show_1d():
 def show_contour():
     fig=plt.figure()
     xs, ys, zs = extract_2d_file_data('histo_core_beta.dat')
+    xs/=133
+    ys/=46
     newzs=np.copy(zs)
     newzs[np.isnan(newzs)]=0
     newzs[newzs==np.inf]=0

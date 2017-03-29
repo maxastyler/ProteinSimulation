@@ -1,0 +1,66 @@
+group CYS id 119 135 163 202 
+group GLY id 1 20 39 92 111 184 
+group LEU id 30 69 102 110 129 151 192 
+group THR id 115 117 121 125 186 190 200 
+group GLN id 71 85 127 145 169 183 204 
+group PRO id 3 137 147 179 
+group BB id 2 4 6 8 10 12 14 16 18 21 23 25 27 29 31 33 35 37 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 93 95 97 99 101 103 105 107 109 112 114 116 118 120 122 124 126 128 130 132 134 136 138 140 142 144 146 148 150 152 154 156 158 160 162 164 166 168 170 172 174 176 178 180 182 185 187 189 191 193 195 197 199 201 203 205 207 209 
+group ILE id 87 171 
+group ASN id 45 53 96 133 
+group MET id 5 57 188 
+group LYS id 47 83 123 153 157 196 
+group TYR id 43 59 98 173 
+group SER id 11 51 63 165 194 198 
+group ASP id 7 32 55 104 131 143 206 
+group PHE id 34 100 139 161 167 
+group HIS id 61 141 149 
+group GLU id 15 17 19 41 108 
+group TRP id 181 
+group ARG id 24 26 65 77 81 113 155 
+group ALA id 9 28 36 49 67 79 91 159 175 208 
+group VAL id 13 22 38 73 75 89 94 106 177 
+# ntot = 209
+fix wallCYS CYS wall/lj93new zhi 60 176.947 1.54619e+07 30 units box
+fix wallGLY GLY wall/lj93new zhi 60 129.946 1.13548e+07 30 units box
+fix wallLEU LEU wall/lj93new zhi 60 680.141 5.94316e+07 30 units box
+fix wallTHR THR wall/lj93new zhi 60 0 6.20891e+07 30 units box
+fix wallGLN GLN wall/lj93new zhi 60 0 1.33842e+08 30 units box
+fix wallPRO PRO wall/lj93new zhi 60 558.49 4.88016e+07 30 units box
+fix wallBB BB wall/lj93new zhi 60 183.552 1.6039e+07 8 units box
+fix wallILE ILE wall/lj93new zhi 60 680.141 5.94316e+07 30 units box
+fix wallASN ASN wall/lj93new zhi 60 0 1.60417e+08 30 units box
+fix wallMET MET wall/lj93new zhi 60 324.864 2.8387e+07 30 units box
+fix wallLYS LYS wall/lj93new zhi 60 0 1.34084e+08 30 units box
+fix wallTYR TYR wall/lj93new zhi 60 0 3.38229e+06 30 units box
+fix wallSER SER wall/lj93new zhi 60 0 8.21412e+07 30 units box
+fix wallASP ASP wall/lj93new zhi 60 0 2.10668e+08 30 units box
+fix wallPHE PHE wall/lj93new zhi 60 411.955 3.59972e+07 30 units box
+fix wallHIS HIS wall/lj93new zhi 60 0 1.12582e+08 30 units box
+fix wallGLU GLU wall/lj93new zhi 60 0 1.64524e+08 30 units box
+fix wallTRP TRP wall/lj93new zhi 60 322.099 2.81455e+07 30 units box
+fix wallARG ARG wall/lj93new zhi 60 0 3.60455e+08 30 units box
+fix wallALA ALA wall/lj93new zhi 60 250.214 2.18641e+07 30 units box
+fix wallVAL VAL wall/lj93new zhi 60 558.49 4.88016e+07 30 units box
+fix_modify wallCYS energy yes
+fix_modify wallGLY energy yes
+fix_modify wallLEU energy yes
+fix_modify wallTHR energy yes
+fix_modify wallGLN energy yes
+fix_modify wallPRO energy yes
+fix_modify wallBB energy yes
+fix_modify wallILE energy yes
+fix_modify wallASN energy yes
+fix_modify wallMET energy yes
+fix_modify wallLYS energy yes
+fix_modify wallTYR energy yes
+fix_modify wallSER energy yes
+fix_modify wallASP energy yes
+fix_modify wallPHE energy yes
+fix_modify wallHIS energy yes
+fix_modify wallGLU energy yes
+fix_modify wallTRP energy yes
+fix_modify wallARG energy yes
+fix_modify wallALA energy yes
+fix_modify wallVAL energy yes
+# etot =  26.9892 kcal/mol
+# etot/efolding =  0.504132
